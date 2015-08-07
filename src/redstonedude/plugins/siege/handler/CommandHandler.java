@@ -18,17 +18,17 @@ public class CommandHandler implements Listener {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
 			if (cmd.getName().equalsIgnoreCase("start")) {
-				// if (sender.hasPermission("siege.start")) {
-				ChatHelper.broadcast("Siege force-started by " + player.getName());
-				Main.startGame();
-				return true;
-				// }
+				if (sender.hasPermission("siege.start")) {
+					ChatHelper.broadcast("Siege force-started by " + player.getName());
+					Main.startGame();
+					return true;
+				}
 			} else if (cmd.getName().equalsIgnoreCase("nextWave")) {
-				// Main.server.getScheduler().cancelTask(Main.currentWaveID);
-				Main.nextWaveTime = (Main.ticker * 20) + 20;
-				ChatHelper.broadcast(ChatColor.BOLD + "" + ChatColor.GOLD + player.getName() + ChatColor.RESET + ChatColor.BLUE + " Forced the next wave");
-				// Main.runWave();
-				return true;
+				if (sender.hasPermission("siege.next")) {
+					Main.nextWaveTime = (Main.ticker * 20) + 20;
+					ChatHelper.broadcast(ChatColor.BOLD + "" + ChatColor.GOLD + player.getName() + ChatColor.RESET + ChatColor.BLUE + " Forced the next wave");
+					return true;
+				}
 			} else if (cmd.getName().equalsIgnoreCase("kit")) {
 				if (args.length == 1) {
 					PlayerEntityHandlerListener.setKit(player, Integer.parseInt(args[0]));
