@@ -1,0 +1,82 @@
+name: Siege
+main: redstonedude.plugins.siege.src.Main
+version: 1.0
+commands:
+   start:
+      description: Force start
+      usage: /<command>
+      permission: siege.start
+      permission-message: You don't have <permission>
+   nextWave:
+      description: Next Wave
+      usage: /<command>
+      permission: siege.nextwave
+      permission-message: You don't have <permission>
+   kit:
+      description: Set kit
+      usage: /<command> <player> <0:1:2>
+      permission: siege.kit
+      permission-message: You don't have <permission>
+   spawnshit:
+      description: Spawn shit
+      usage: /<command> <number>
+      permission: siege.spawn
+      permission-message: You don't have <permission>
+   ghost:
+      description: Ghost mode
+      usage: /<command>
+      permission: siege.ghost
+      permission-message: You don't have <permission>
+   join:
+      description: Join after a reload
+      usage: /<command>
+      permission: siege.join
+      permission-message: You don't have <permission>
+   boss:
+      description: Force a certain type of boss wave
+      usage: /<command> <number>
+      permission: siege.boss
+      permission-message: You don't have <permission>
+   joinghost:
+      description: Join ghosted
+      usage: /<command> <number>
+      permission: siege.ghost
+      permission-message: You don't have <permission>
+   money:
+      description: Modify money
+      usage: /<command> <player> <add:set:remove> <number>
+      permission: siege.money
+      permission-message: You don't have <permission>
+permissions:
+   siege.*:
+      description: Gives access to all siege commands
+      children:
+         siege.start: true
+         siege.next: true
+   siege.start:
+      description: Allows user to force-start the siege
+      default: op
+   siege.next:
+      description: Allows user to force the next wave of the siege
+      default: op
+   siege.kit:
+      description: Allows user to select kits
+      default: true
+   siege.ghost:
+      description: Allows user to join ghosted
+      default: op
+   siege.spawn:
+      description: Allows user to spawn mobs
+      default: op
+   siege.join:
+      description: Allows user to join after a reload
+      default: true
+   siege.boss:
+      description: Allows user to force type of boss wave
+      default: op
+   siege.retain:
+      description: Allows user to retain gamemode and inventory on a wave start
+      default: op
+   siege.money:
+      description: Allows user to modify money
+      default: op

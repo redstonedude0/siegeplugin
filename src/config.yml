@@ -1,0 +1,8 @@
+wave-time: 1200
+chest-location: 2:64:2
+lobby-location: 100:64:100
+mob-locations:
+- -21:64:2
+- 2:64:-21
+- 2:64:25
+- 25:64:2
