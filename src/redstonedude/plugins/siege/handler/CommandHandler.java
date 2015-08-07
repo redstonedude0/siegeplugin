@@ -19,7 +19,7 @@ public class CommandHandler implements Listener {
 			Player player = (Player) sender;
 			if (cmd.getName().equalsIgnoreCase("start")) {
 				// if (sender.hasPermission("siege.start")) {
-				ChatHelper.sendMessage(player, "Siege started by command");
+				ChatHelper.broadcast("Siege force-started by " + player.getName());
 				Main.startGame();
 				return true;
 				// }
@@ -80,20 +80,20 @@ public class CommandHandler implements Listener {
 						case "add":
 							CustomPlayerData cpd = PlayerEntityHandlerListener.getPlayerData(p.getUniqueId());
 							cpd.points += money1;
-							ChatHelper.sendMessage(player, "Added £" + money1 + " to " + p.getName());
-							ChatHelper.sendMessage(p, player.getName() + " Added £" + money1 + " to your money");
+							ChatHelper.sendMessage(player, "Added Â£" + money1 + " to " + p.getName());
+							ChatHelper.sendMessage(p, player.getName() + " Added Â£" + money1 + " to your money");
 							break;
 						case "set":
 							CustomPlayerData cpd1 = PlayerEntityHandlerListener.getPlayerData(p.getUniqueId());
 							cpd1.points = money1;
-							ChatHelper.sendMessage(player, "Set " + p.getName() + "'s money to £" + money1);
-							ChatHelper.sendMessage(p, player.getName() + " Set your money to £" + money1);
+							ChatHelper.sendMessage(player, "Set " + p.getName() + "'s money to Â£" + money1);
+							ChatHelper.sendMessage(p, player.getName() + " Set your money to Â£" + money1);
 							break;
 						case "remove":
 							CustomPlayerData cpd2 = PlayerEntityHandlerListener.getPlayerData(p.getUniqueId());
 							cpd2.points -= money1;
-							ChatHelper.sendMessage(player, "Removed £" + money1 + " from " + p.getName());
-							ChatHelper.sendMessage(p, player.getName() + " Removed £" + money1 + " from your money");
+							ChatHelper.sendMessage(player, "Removed Â£" + money1 + " from " + p.getName());
+							ChatHelper.sendMessage(p, player.getName() + " Removed Â£" + money1 + " from your money");
 							break;
 						}
 					}
