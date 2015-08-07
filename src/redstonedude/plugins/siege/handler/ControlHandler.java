@@ -12,7 +12,6 @@ public class ControlHandler {
 	public static boolean gameEnded = false;
 	
 	public static void endGame() {
-		ChatHelper.test();
 		ChatHelper.broadcast("You have failed, you made it to wave " + Main.wave);
 		ChatHelper.broadcast("You will be taken back to the lobby in 10 seconds");
 		int playersQty = PlayerEntityHandlerListener.players.size();
