@@ -85,7 +85,7 @@ public class CommandHandler implements Listener {
 							break;
 						case "set":
 							CustomPlayerData cpd1 = PlayerEntityHandlerListener.getPlayerData(p.getUniqueId());
-							cpd1.points = money1;
+							cpd1.points = money1;			
 							ChatHelper.sendMessage(player, "Set " + p.getName() + "'s money to £" + money1);
 							ChatHelper.sendMessage(p, player.getName() + " Set your money to £" + money1);
 							break;
@@ -99,6 +99,12 @@ public class CommandHandler implements Listener {
 					}
 				}
 				return true;
+			} else if (cmd.getName().equalsIgnoreCase("retain")) {
+				if (PlayerEntityHandlerListener.retainingPlayers.contains(player.getUniqueId()) {
+					PlayerEntityHandlerListener.removeRetainingPlayer(player);
+				} else {
+					PlayerEntityHandlerListener.addRetainingPlayer(player);
+				}
 			}
 		}
 		return false;
