@@ -100,11 +100,14 @@ public class CommandHandler implements Listener {
 				}
 				return true;
 			} else if (cmd.getName().equalsIgnoreCase("retain")) {
+				if (sender.hasPermission("siege.start")) {
 				if (PlayerEntityHandlerListener.retainingPlayers.contains(player.getUniqueId()) {
 					PlayerEntityHandlerListener.removeRetainingPlayer(player);
 				} else {
 					PlayerEntityHandlerListener.addRetainingPlayer(player);
 				}
+return true;
+}
 			}
 		}
 		return false;
