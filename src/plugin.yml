@@ -47,6 +47,11 @@ commands:
       usage: /<command> <player> <add:set:remove> <number>
       permission: siege.money
       permission-message: You don't have <permission>
+   retain:
+      description: Toggle game mode and inventory retention
+      usage: /<command>
+      permission: siege.retain
+      permission-message: You don't have <permission>
 permissions:
    siege.*:
       description: Gives access to all siege commands
@@ -79,4 +84,7 @@ permissions:
       default: op
    siege.money:
       description: Allows user to modify money
+      default: op
+   siege.retain:
+      description: Allows user to toggle gamemode retention
       default: op
