@@ -72,6 +72,7 @@ public class PlayerEntityHandlerListener implements Listener {
 
 	public static ArrayList<UUID> players = new ArrayList<UUID>();
 	public static ArrayList<UUID> ghostplayers = new ArrayList<UUID>();
+	public static ArrayList<UUID> retainingPlayers = new ArrayList<UUID>();
 
 	@EventHandler
 	public static void onQuit(PlayerQuitEvent event) {
@@ -82,13 +83,24 @@ public class PlayerEntityHandlerListener implements Listener {
 	public static void onKicked(PlayerKickEvent event) {
 		disconnectPlayer(event.getPlayer());
 	}
-
+			
 	public static void disconnectPlayer(Player p) {
 		if (players.contains(p.getUniqueId())) {
-			removePlayer(p);
+			removePlayer(p);	
 		} else {
 			removeGhostPlayer(p);
 		}
+		if (retainingPlayers.contains(p.getUniqueId()) {
+			removeRetainingPlayer(p);
+		}
+	}
+
+	public static void removeRetainingPlayer(Player p) {
+		retainingPlayers.remove(p.getUniqueId());
+	}
+
+	public static void addRetainingPlayer(Player p) {
+		retainingPlayers.add(p.getUniqueId());
 	}
 
 	public static void removePlayer(Player p) {
@@ -122,7 +134,7 @@ public class PlayerEntityHandlerListener implements Listener {
 	public static void addPlayer(Player p) {
 
 		Objective objective = Main.infoboard.registerNewObjective("info_" + Main.playerCount + "_" + Main.ticker, "dummy");
-		objective.setDisplayName("§cSiege");
+		objective.setDisplayName("Â§cSiege");
 		Score score = objective.getScore(ChatColor.AQUA + "Welcome to Siege");
 		score.setScore(2);
 		score = objective.getScore(ChatColor.GREEN + "Server: " + ChatColor.RED + Main.server.getMotd());
